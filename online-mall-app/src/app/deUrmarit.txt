@@ -1,0 +1,10 @@
+ 
+ 
+ 
+ nu am reusit sa atasez path urile ASTEA in fisierul Angular.json in sectiune style, pentru a seta bootstrap si fontawesome 
+ pentru toata aplicatia
+                 "node_modules/bootstrap\dist\css/bootstrap.min.css",
+                "node_modules/fortawesome/fontAwesome-free/css/all.min.css"
+
+ in product list component.ts in functia listProducts nu am reusit sa pun + 
+ la find by category in products repository imi da 404   http://localhost:8080/api/products/search/findByCategoryId?id=2

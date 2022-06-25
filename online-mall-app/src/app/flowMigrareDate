@@ -1,0 +1,43 @@
+1. Product repository
+        // http://localhost:8080/api/products/search/findByNameContaining?name
+     creare metoda       Page<Product> findByNameContaining(@RequestParam("name") String name, Pageable pageable);
+
+2. AppModule.ts
+          rutes
+          add rute      {path:'search/:keyword', component: ProductListComponent},
+
+3. Create mew component
+      ng g c searchComponent
+
+4. Add selector in appComponent.html
+    <app-search></app-search>
+
+5. SearchComponent.html
+      create fornmular
+                 <div class="form-header">
+                           <!--template reference variable-->
+                   <input #myInput  type="text"
+                          class="au-input au-input-xl"
+                          placeholder="Search for products ..."
+                           (keyup.enter)="doSearch(myInput.value)" )/>
+
+                   <button (click)="doSearch(myInput.value)"class="au-btn-submit" >Search </button>
+                 </div>
+
+6. SearchComponent.ts
+        inject into the constructor - Router
+                       constructor( private  router: Router ) { }
+
+        create method doSearch
+                    doSearch(value: string){
+                      console.log(`value=${value}`);
+                      this.router.navigateByUrl(`/search/${value}`);  // route the data to our search route. handled by the ProductListComponent
+                    }                                 // to reuse the logic and view for listing products
+
+ 7. ProductListComponent.ts
+      create new property
+                  searchMode: boolean;
+      add a new method
+
+
+
